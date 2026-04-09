@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ansur</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23000'/%3E%3Cg transform='translate(10.66 3) scale(0.1057)'%3E%3Cpath d='M24.7342 0.263667L1 0L1.03065 65.3125L82.9286 145L101 127.849L61.6796 89.9104L25.5387 54.0502V0.263667H24.7342Z' fill='white'/%3E%3Cpath d='M0 188.226L32.398 159.339L63.0303 132L80 148.507L51.8788 175.846L24.2985 202.154V246H0V217.113V188.226Z' fill='white'/%3E%3C/g%3E%3C/svg%3E">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      padding: 24px;
+      pointer-events: none;
+    }
+
+    .logo svg {
+      width: 225px;
+      height: auto;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.2s;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      text-align: center;
+      max-width: 720px;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.5s;
+    }
+
+    .coming-soon {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.9s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="warp"></canvas>
+
+  <div class="content">
+    <div class="logo">
+      <svg width="225" height="170" viewBox="0 0 225 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.4779 0.180021L1 0L1.01869 44.5927L50.9765 99L62 87.2903L38.0146 61.3871L15.9686 36.9032V0.180021H15.4779Z" fill="white"/>
+        <path d="M0 129.964L19.8438 109.946L38.6061 91L49 102.439L31.7758 121.385L14.8828 139.615V170H0V149.982V129.964Z" fill="white"/>
+        <path d="M79.157 81H82.5539L92 99H87.9093L85.6905 94.8844H75.3338L73.3029 99H70L79.157 81ZM84.3173 92.1232L80.588 84.9324L77.0828 92.1232H84.3173Z" fill="white"/>
+        <path d="M107 81H109.882L121.016 93.5745V81H124V99H120.86L109.984 86.3536V99H107V81Z" fill="white"/>
+        <path d="M142 95.3141L144.004 92.9476C145.852 94.848 147.151 95.7085 149.666 95.7085C151.837 95.7085 152.813 94.6902 152.813 93.048C152.813 91.6138 152.07 90.8322 148.709 90.0147C144.915 89.0538 143.008 87.8777 143.008 84.5073C143.008 81.3593 145.264 79 149 79C151.65 79 153.583 79.9753 155.334 81.7465L153.596 84.2922C152.025 82.8222 150.571 82.105 148.884 82.105C147.106 82.105 146.053 83.2094 146.053 84.5719C146.053 86.0778 146.854 86.7806 150.357 87.7271C154.151 88.7669 156 90.237 156 93.256C156 96.8774 153.518 99 149.789 99C146.945 99 144.463 98.0965 142 95.3141Z" fill="white"/>
+        <path d="M173 91.3164V81H176.664V91.2449C176.664 94.8527 178.589 96.2243 181.401 96.2243C184.213 96.2243 186.343 94.5341 186.343 91.0628V81H190V90.9523C190 96.4128 186.343 99 181.372 99C176.622 99 173 96.6338 173 91.3164Z" fill="white"/>
+        <path d="M208 81H217.08C221.923 81 224.227 83.7431 224.227 87.0544C224.227 89.8237 222.427 91.8483 219.66 92.6909L225 99H220.998L216.21 92.8476H211.595V99H208V81ZM216.617 90.0588C219.467 90.0588 220.667 88.4848 220.667 86.7866C220.667 84.8991 219.349 83.7954 216.686 83.7954H211.595V90.0588H216.617Z" fill="white"/>
+      </svg>
+    </div>
+
+    <h1>Software Factory That<br>Produces AI Employees</h1>
+
+    <div class="coming-soon">Coming Soon</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('warp');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    const STAR_COUNT = 2000;
+    const DEPTH = 1500;
+    let stars = [];
+    let mouseX = 0.5, mouseY = 0.5;
+    let speed = 2;
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+
+    function initStars() {
+      stars = [];
+      for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push(resetStar({ z: Math.random() * DEPTH }));
+      }
+    }
+
+    function resetStar(overrides = {}) {
+      return {
+        x: (Math.random() - 0.5) * w * 2,
+        y: (Math.random() - 0.5) * h * 2,
+        z: overrides.z !== undefined ? overrides.z : DEPTH,
+        prevX: 0,
+        prevY: 0,
+        // Some stars get a faint color
+        hue: Math.random() > 0.8 ? (Math.random() > 0.5 ? 220 : 280) : 0,
+      };
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX / w;
+      mouseY = e.clientY / h;
+    });
+
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+      ctx.fillRect(0, 0, w, h);
+
+      // Vanishing point follows mouse gently
+      const cx = w * (0.4 + mouseX * 0.2);
+      const cy = h * (0.4 + mouseY * 0.2);
+
+      for (const star of stars) {
+        // Store previous screen position
+        const prevZ = star.z;
+        star.prevX = (star.x / prevZ) * 400 + cx;
+        star.prevY = (star.y / prevZ) * 400 + cy;
+
+        // Move star closer
+        star.z -= speed;
+
+        // Reset if past camera
+        if (star.z <= 1) {
+          Object.assign(star, resetStar());
+        }
+
+        // Project to 2D
+        const sx = (star.x / star.z) * 400 + cx;
+        const sy = (star.y / star.z) * 400 + cy;
+
+        // Skip if offscreen
+        if (sx < -50 || sx > w + 50 || sy < -50 || sy > h + 50) continue;
+
+        // Brightness based on depth
+        const depthRatio = 1 - star.z / DEPTH;
+        const alpha = depthRatio * depthRatio * 0.9;
+        const radius = depthRatio * 2;
+
+        // Draw streak line from prev to current position
+        const dx = sx - star.prevX;
+        const dy = sy - star.prevY;
+        const streakLen = Math.sqrt(dx * dx + dy * dy);
+
+        if (streakLen > 0.5) {
+          const grd = ctx.createLinearGradient(star.prevX, star.prevY, sx, sy);
+
+          if (star.hue) {
+            grd.addColorStop(0, `hsla(${star.hue}, 50%, 80%, 0)`);
+            grd.addColorStop(1, `hsla(${star.hue}, 50%, 80%, ${alpha})`);
+          } else {
+            grd.addColorStop(0, `rgba(255, 255, 255, 0)`);
+            grd.addColorStop(1, `rgba(255, 255, 255, ${alpha})`);
+          }
+
+          ctx.beginPath();
+          ctx.moveTo(star.prevX, star.prevY);
+          ctx.lineTo(sx, sy);
+          ctx.strokeStyle = grd;
+          ctx.lineWidth = radius * 0.8;
+          ctx.stroke();
+        }
+
+        // Star head
+        ctx.beginPath();
+        ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+        if (star.hue) {
+          ctx.fillStyle = `hsla(${star.hue}, 50%, 85%, ${alpha})`;
+        } else {
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        }
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    window.addEventListener('resize', () => {
+      resize();
+      initStars();
+    });
+
+    resize();
+    initStars();
+    requestAnimationFrame(draw);
+  </script>
+</body>
+</html>
