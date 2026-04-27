@@ -58,7 +58,7 @@
       line-height: 1.2;
       letter-spacing: -0.02em;
       text-align: center;
-      max-width: 720px;
+      white-space: nowrap;
       opacity: 0;
       animation: fadeIn 1s ease forwards 0.5s;
     }
@@ -69,10 +69,16 @@
       line-height: 1.5;
       letter-spacing: -0.005em;
       text-align: center;
-      max-width: 620px;
+      white-space: nowrap;
       color: rgba(255, 255, 255, 0.6);
       opacity: 0;
       animation: fadeIn 1s ease forwards 0.7s;
+    }
+
+    @media (max-width: 760px) {
+      h1, .tagline { white-space: normal; }
+      h1 { max-width: 90vw; }
+      .tagline { max-width: 90vw; }
     }
 
     .coming-soon {
@@ -109,7 +115,7 @@
     </div>
 
     <div class="headline">
-      <h1>AI Employees Trained<br>On Your Work</h1>
+      <h1>AI Employees Trained On Your Work</h1>
       <p class="tagline">The platform businesses use to deploy company-specific AI employees, trained by their own team.</p>
     </div>
 
