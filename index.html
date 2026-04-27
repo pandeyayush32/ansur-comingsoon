@@ -38,6 +38,13 @@
       pointer-events: none;
     }
 
+    .headline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
     .logo svg {
       width: 225px;
       height: auto;
@@ -54,6 +61,18 @@
       max-width: 720px;
       opacity: 0;
       animation: fadeIn 1s ease forwards 0.5s;
+    }
+
+    .tagline {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: -0.005em;
+      text-align: center;
+      max-width: 620px;
+      color: rgba(255, 255, 255, 0.6);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.7s;
     }
 
     .coming-soon {
@@ -89,7 +108,10 @@
       </svg>
     </div>
 
-    <h1>Software Factory That<br>Produces AI Employees</h1>
+    <div class="headline">
+      <h1>AI Employees Trained<br>On Your Work</h1>
+      <p class="tagline">The platform businesses use to deploy company-specific AI employees, trained by their own team.</p>
+    </div>
 
     <div class="coming-soon">Coming Soon</div>
   </div>
